@@ -38,6 +38,11 @@ spring.jpa.hibernate.ddl-auto=update
 
 ### 3. Build the Application
 
+Use Maven to package the application:
+```bash
+mvn clean install
+```
+
 ### Running application and start MySQL / phpMyadmin in Docker
 
 ```bash
