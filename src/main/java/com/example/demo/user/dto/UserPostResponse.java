@@ -12,7 +12,6 @@ public class UserPostResponse {
     @JsonIgnoreProperties({"user"})
     private List<Post> posts;
 
-    // Constructors, Getters, and Setters
     public UserPostResponse(User user, List<Post> posts) {
         this.user = user;
         this.posts = posts;

@@ -9,7 +9,7 @@ import com.example.demo.user.dto.UserPostResponse;
 import com.example.demo.user.entity.User;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/api/users")
 class UserController {
 
     @Autowired

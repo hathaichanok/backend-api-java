@@ -13,7 +13,7 @@ import org.springframework.data.domain.Pageable;
 import com.example.demo.post.entity.Post;
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/api/posts")
 class PostController {
     @Autowired
     private PostService postService;
