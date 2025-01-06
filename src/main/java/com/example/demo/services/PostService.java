@@ -1,4 +1,4 @@
-package com.example.demo.post;
+package com.example.demo.services;
 
 import java.util.List;
 
@@ -7,8 +7,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entities.Post;
 import com.example.demo.exceptions.NotFoundException;
-import com.example.demo.post.entity.Post;
+import com.example.demo.repositories.PostRepository;
 
 @Service
 public class PostService {

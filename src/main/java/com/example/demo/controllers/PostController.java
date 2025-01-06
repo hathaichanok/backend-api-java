@@ -1,4 +1,4 @@
-package com.example.demo.post;
+package com.example.demo.controllers;
 
 import java.util.List;
 
@@ -8,9 +8,10 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import org.springframework.data.domain.Pageable;
+import com.example.demo.entities.Post;
+import com.example.demo.services.PostService;
 
-import com.example.demo.post.entity.Post;
+import org.springframework.data.domain.Pageable;
 
 @RestController
 @RequestMapping("/api/posts")

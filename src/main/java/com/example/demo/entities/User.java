@@ -1,9 +1,8 @@
-package com.example.demo.user.entity;
+package com.example.demo.entities;
 import jakarta.persistence.*;
 
 import java.util.List;
 
-import com.example.demo.post.entity.Post;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity

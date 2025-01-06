@@ -1,9 +1,9 @@
-package com.example.demo.user.dto;
+package com.example.demo.dto;
 
 import java.util.List;
 
-import com.example.demo.post.entity.Post;
-import com.example.demo.user.entity.User;
+import com.example.demo.entities.Post;
+import com.example.demo.entities.User;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 public class UserPostResponse {

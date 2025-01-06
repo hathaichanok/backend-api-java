@@ -1,4 +1,4 @@
-package com.example.demo.user;
+package com.example.demo.services;
 
 import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,9 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entities.User;
 import com.example.demo.exceptions.NotFoundException;
-import com.example.demo.user.entity.User;
+import com.example.demo.repositories.UserRepository;
 
 @Service
 public class UserService {
