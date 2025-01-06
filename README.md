@@ -36,8 +36,6 @@ spring.datasource.password=<password>
 spring.jpa.hibernate.ddl-auto=update
 ```
 
-- If using Docker, skip this step as the database will be automatically set up.
-
 ### 3. Build the Application
 
 ### Running application and start MySQL / phpMyadmin in Docker
