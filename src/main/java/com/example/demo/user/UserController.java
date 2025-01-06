@@ -1,7 +1,10 @@
 package com.example.demo.user;
-import java.util.List;
 
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +19,14 @@ class UserController {
     private UserService userService;
 
     @GetMapping
-    public List<User> listUsers() {
-        return userService.listUsers();
+    public ResponseEntity<Page<User>> listUsers(
+        @RequestParam(defaultValue = "1") int page,
+        @RequestParam(defaultValue = "10") int size
+    ) {
+        Pageable pageable = PageRequest.of(page-1, size);
+        Page<User> users = userService.listUsers(pageable);
+
+        return ResponseEntity.ok(users);
     }
 
     @GetMapping("/{id}")
@@ -34,7 +43,7 @@ class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> createUser(@RequestBody User user) {
+    public ResponseEntity<User> createUser(@RequestBody User user) throws BadRequestException {
         User createdUser = userService.createUser(user);
         return ResponseEntity.ok(createdUser);
     }

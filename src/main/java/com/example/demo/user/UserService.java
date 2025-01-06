@@ -1,8 +1,9 @@
 package com.example.demo.user;
 
-import java.util.List;
-
+import org.apache.coyote.BadRequestException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.exceptions.NotFoundException;
@@ -14,8 +15,8 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    public List<User> listUsers() {
-        return userRepository.findAll();
+    public Page<User> listUsers(Pageable pageable) {
+        return userRepository.findAll(pageable);
     }
 
     public User getUser(Long id) {
@@ -23,7 +24,12 @@ public class UserService {
         .orElseThrow(() -> new NotFoundException(id));
     }
 
-    public User createUser(User user) {
+    public User createUser(User user) throws BadRequestException {
+        if(userRepository.findByEmail(user.getEmail()) != null){
+            // email already exist
+            throw new BadRequestException("Email " + user.getEmail() + " already existed");
+        }
+        
         return userRepository.save(user);
     }
 

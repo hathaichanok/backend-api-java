@@ -16,3 +16,23 @@ services:
       - 8081:80
     environment:        
       PMA_HOST: mysql
+  spring-boot-app:
+    image: eclipse-temurin:23-jdk-alpine
+    container_name: backend-api
+    working_dir: /app
+    volumes:
+      - ./target/myapp-0.0.1-SNAPSHOT.jar:/app/app.jar
+    ports:
+      - '8080:8080'
+    entrypoint: ["java", "-jar", "/app/app.jar"]
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/mydatabase
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: verysecret
+    depends_on:
+      - mysql
+    restart: always
+
+volumes:
+  mysql_data:
+
